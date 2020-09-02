@@ -42,4 +42,3 @@ yarn-debug.log*
 
 # Ignore db test files, although I am not sure why
 db/test.*
-
