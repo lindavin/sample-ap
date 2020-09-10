@@ -1,0 +1,30 @@
+<!--- Not working as intended; fix in the future
+% provide(:company_name, Faker::Company.name) %>
+% provide(:company_catch_phrase, Faker::Company.catch_phrase) %>
+% provide(:company_about, Faker::Company.bs) %>
+-->
+
+ <!--Done following Melu's response in https://stackoverflow.com/questions/49160572/bootstrap-3-card -->
+    <div class="col-sm-4">
+      <div class="thumbnail">
+        <div class="caption text-center" >
+          <div class="position-relative">
+            <img src="https://az818438.vo.msecnd.net/icons/slack.png" style="width:72px;height:72px;" />
+          </div>
+          
+          <h4 id="thumbnail-label"><a href="https://flow.microsoft.com/en-us/connectors/shared_slack/slack/" target="_blank"><%=(Faker::Company.name)%></a></h4>
+          <!-- <p><i class="glyphicon glyphicon-user light-red lighter bigger-120"></i>&nbsp;Auditor</p> -->
+          
+          <div class="thumbnail-description smaller">
+            <%= Faker::Company.catch_phrase%>
+            </div>
+        </div>
+        <div class="caption card-footer text-center">
+          <ul class="list-inline">
+            <li><i class="people lighter"></i>&nbsp;<%=rand(1000000)%> Active Users</li>
+            <li></li>
+            <li><i class="glyphicon glyphicon-envelope lighter"></i><a href="#">&nbsp;Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
