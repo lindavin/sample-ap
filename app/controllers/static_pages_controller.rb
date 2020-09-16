@@ -3,12 +3,18 @@ class StaticPagesController < ApplicationController
       # code-snippet from: https://medium.com/@josheche/parsing-an-rss-feed-in-ruby-on-rails-58b23cfb5b25
       require 'rss'
       require 'open-uri'
-      url = 'https://www.mintpressnews.com/rss/'
-      rss = RSS::Parser.parse(open(url).read, false).items[0..5]
+      @rss_feeds = RssFeed.all
       @rss_results = []
-      rss.each do |result|
-      result = { title: result.title, date: result.pubDate, link: result.link, description: result.description }
-      @rss_results.push(result)
+      @rss_feeds.each do |feed|
+        puts feed.name
+        url = feed.link
+        rss = RSS::Parser.parse(open(url).read, false).items[0..5]
+        top_five_results = []
+        rss.each do |result|
+          result = { title: result.title, date: result.pubDate, link: result.link, description: result.description }
+          top_five_results.push(result)
+        end
+        @rss_results.push({ source: feed.name, top_five_results: top_five_results})
       end
   end
 
