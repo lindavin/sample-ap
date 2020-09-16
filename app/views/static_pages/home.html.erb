@@ -34,17 +34,23 @@
       
     </div>
     <div class="col-md-2">&nbsp;</div>
-   
-    <% @rss_results.each do |item|%>
-    <div class="row">
-      <div id="article-div" class="col-xs-8">
-        <div class= "well well-lg">
-          <div class= "article-title">
-            <p><%="#{item[:title]}"%></p>
+    <h2>Here are the rss feeds that are currently stored in our database and their corresponding top five news results</h2>
+    <% @rss_results.each do |item|
+      source = item[:source]
+      top_five_results = item[:top_five_results]
+    %>
+      <h3>Source: <%="#{source}"%></h3>
+      <% top_five_results.each do |result| %>
+      <div class="row">
+        <div id="article-div" class="col-xs-8">
+          <div class= "well well-lg">
+            <div class= "article-title">
+              <p><%="#{result[:title]}"%></p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+      <% end %>
    <% end %>
   </div>
 </div>

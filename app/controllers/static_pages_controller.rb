@@ -8,7 +8,7 @@ class StaticPagesController < ApplicationController
       @rss_feeds.each do |feed|
         puts feed.name
         url = feed.link
-        rss = RSS::Parser.parse(open(url).read, false).items[0..5]
+        rss = RSS::Parser.parse(open(url).read, false).items[0..4]
         top_five_results = []
         rss.each do |result|
           result = { title: result.title, date: result.pubDate, link: result.link, description: result.description }
