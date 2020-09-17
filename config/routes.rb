@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :users
   resources :rss_feeds
   get '/login' , to:'user#login'
   get '/signup' , to:'user#new'
