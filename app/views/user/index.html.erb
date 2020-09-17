@@ -1,0 +1,5 @@
+<p> Total number of users: <%= @users.length %> </p> 
+<p> List of users below: </p>
+<% @users.each do |user|%>
+    <p><%="#{user.name}"%></p>
+<% end %>

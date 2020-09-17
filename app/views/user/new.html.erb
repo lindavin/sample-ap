@@ -3,14 +3,18 @@
 <div id='sign-up-form'>
   <div>
     <h1> Sign Up Now </h1>
-    <form>
-      <input type='email' class='input-box' placeholder='Your Email'>
-      <input type='password' class='input-box' placeholder='Your Password'>
+    <form action="/user" method="post">
+    <input name="authenticity_token" type="hidden"
+    value="NNb6+J/j46LcrgYUC60wQ2titMuJQ5lLqyAbnbAUkdo=" />
+    <input type='text' class='input-box' placeholder='Your Name' name='user[name]'>
+      <input type='email' class='input-box' placeholder='Your Email' name='user[email]'>
+      <input type='password' class='input-box' placeholder='Your Password' name='user[password]'>
+      <input type='password' class='input-box' placeholder='Confirm your password' name='user[password_confirmation]'>
       <p> 
       <span><input type='checkbox'></span>
       I agree to the terms of services 
       </p>
-      <button type='button' class='signupbtn account-button'> Sign up</button>
+      <button type='submit' class='signupbtn account-button'> Sign up</button>
       <hr>
       <p class='or'>OR</p>
       <button type='button' class='signupbtn google-button'> Login with google</button>
