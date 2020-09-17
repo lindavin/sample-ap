@@ -7,6 +7,8 @@ ruby '2.6.3'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # Use Bootstrap framework for styling
 gem 'bootstrap-sass', '3.4.1'
+# Use Bcrypt for password hashing
+gem 'bcrypt',         '3.1.12'
 
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
