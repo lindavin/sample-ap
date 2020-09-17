@@ -32,4 +32,10 @@ class UserTest < ActiveSupport::TestCase
     @user.password = " " * 6
     assert_not @user.valid?
   end
+
+  test "Authentications" do
+    @user.save
+    assert_not !!@user.authenticate('bar')
+    assert !!@user.authenticate('foo')
+  end
 end
