@@ -5,7 +5,7 @@ class UserTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
-    @user = User.new(name: "Hello", email: "Human")
+    @user = User.new(name: "Hello", email: "human", password: "foo", password_confirmation: "foo")
   end 
   
   test "Should be valid" do
@@ -22,4 +22,20 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
   
+  test "User should be unique" do
+    duplicate_user = @user.dup 
+    @user.save
+    assert_not duplicate_user.valid?
+  end
+
+  test "Pasword should be present" do
+    @user.password = " " * 6
+    assert_not @user.valid?
+  end
+
+  test "Authentications" do
+    @user.save
+    assert_not !!@user.authenticate('bar')
+    assert !!@user.authenticate('foo')
+  end
 end
