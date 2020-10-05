@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   # The line [protect_from_forgery prepend:true] immediately below was suggested at:
   # https://stackoverflow.com/questions/38331496/rails-5-actioncontrollerinvalidauthenticitytoken-error
   protect_from_forgery prepend:true
