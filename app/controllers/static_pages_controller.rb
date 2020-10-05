@@ -1,5 +1,17 @@
 class StaticPagesController < ApplicationController
   def home
+  end
+
+  def help
+  end
+  
+  def about
+  end
+  
+  def contact
+  end
+
+  def rss_home
       # code-snippet from: https://medium.com/@josheche/parsing-an-rss-feed-in-ruby-on-rails-58b23cfb5b25
       require 'rss'
       require 'open-uri'
@@ -16,14 +28,5 @@ class StaticPagesController < ApplicationController
         end
         @rss_results.push({ source: feed.name, top_five_results: top_five_results})
       end
-  end
-
-  def help
-  end
-  
-  def about
-  end
-  
-  def contact
   end
 end

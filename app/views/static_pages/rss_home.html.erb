@@ -1,0 +1,47 @@
+<!--Done following Melu's response in https://stackoverflow.com/questions/49160572/bootstrap-3-card -->
+<div class="row">
+  <div> 
+    <div class="col-md-2">&nbsp;</div>
+    <h2>Here are the rss feeds that are currently stored in our database and their corresponding top five news results</h2>
+    <% @rss_results.each do |item|
+      source = item[:source]
+      top_five_results = item[:top_five_results]
+    %>
+    <div>
+      <!-- Card -->
+      <div class="col-sm-4">
+        <div class="thumbnail">
+          <div class="caption text-center" >
+            <div class="position-relative">
+              <img src="https://az818438.vo.msecnd.net/icons/slack.png" style="width:72px;height:72px;" />
+            </div>
+          
+          <h4 id="thumbnail-label">
+            <a href="https://flow.microsoft.com/en-us/connectors/shared_slack/slack/" target="_blank">
+              <h3>Source: <%="#{source}"%></h3>
+            </a>
+           </h4>
+          
+          <% top_five_results.each do |result| %>
+            <div class="row">
+              <div id="article-div" class="col-xs-8" style='width:100%'>
+                <div class= "well well-lg">
+                  <div> 
+                    <p><%=result[:date]%></p>
+                    <a href=<%=result[:link]%> target="_blank">
+                      <strong><h4><%=result[:title]%></h4></strong>
+                    </a>
+                      <%= sanitize result[:description]%>...
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+      </div>
+    </div>
+    
+    </div>
+   <% end %>
+  </div>
+</div>
+</div>
